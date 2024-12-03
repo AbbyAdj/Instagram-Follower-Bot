@@ -31,8 +31,6 @@ class InstagramFollowerBot:
 
     def login(self):
         """This function logs the user in automatically."""
-        # driver = self.initialize_driver()
-        # TODO: For the cookie selection, scroll to the bottom of the list to mimic the actions of a human
         time.sleep(3)
         allow_cookies = self.driver.find_element(By.CSS_SELECTOR, value="._a9--._ap36._a9_0")
         allow_cookies.click()
@@ -61,7 +59,6 @@ class InstagramFollowerBot:
         You can provide both if you want but the url will always be used first"""
         account_url = account_details["account_url"]
         account_name = account_details["account_name"]
-        # TODO LATER: Use regex to ensure that the url provided is correct.
         if account_url in account_details.values():
             time.sleep(10)
             self.driver.get(account_url)
@@ -73,14 +70,6 @@ class InstagramFollowerBot:
             time.sleep(1)
 
         elif account_url not in account_details.values() and account_name in account_details.values():
-            # Only the account name was provided
-            # TODO: LATER: This will be written at the end of the project
-            # TODO: If only the account name is provided, you need to
-            #       1. After login, click on the search bar.
-            #       2. Input the account name in the search bar, this is where it gets tricky because sometimes you
-            #       might not get the exact account you want. For the sake of the program, we would assume that the
-            #       first account is the one we need. Or try using the Instagram API for this.
-            #       3. After just call self.follow_accounts()
             pass
 
         else:
@@ -147,16 +136,12 @@ class InstagramFollowerBot:
                     print(f"{accounts_followed_so_far} account(s) followed")
                     continue
         self.driver.quit()
-                # Dealing with if we are doing a mass follow and the user asks to follow a number of accounts higher
-                # than what is shown on screen, and we get to the end of the list, we need to restart the whole process.
 
     def use_new_account(self, should_continue: bool):
         """Offers the user a chance to decide if they want to continue following from a different account.
         Pass the reply from the user as an input"""
         if not should_continue:
-            # TODO: If you are using the Instagram API, tell them how many accounts they are now following (stats).
-            #  To make it nicer, assign the following count before using the bot to a variable and tell them the two.
-            #  e.g "You were following X before and your following Y now. You have followed A more accounts.
+
             print("Thank you for using the Instagram follower bot! ;)")
         elif should_continue:
             self.navigate_to_account()
@@ -165,7 +150,6 @@ class InstagramFollowerBot:
                 self.follow_accounts(number=number)
             else:
                 self.follow_accounts()
-            # TODO: I don't have time for this, focus on this at the end of the project.
         else:
             print("That was not a valid response. Please try again")
 
