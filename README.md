@@ -42,7 +42,6 @@ git clone https://github.com/AbbyAdj/Instagram-Follower-Bot.git
 2. Install the necessary dependencies:
 ```
 pip install -r requirements.txt
-Download and install ChromeDriver.
 ```
 
 3. Configure your Instagram credentials:
