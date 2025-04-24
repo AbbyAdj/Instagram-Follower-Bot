@@ -46,7 +46,11 @@ pip install -r requirements.txt
 
 3. Configure your Instagram credentials:
 
-- Open the script and input your Instagram username and password (you can also configure this as environment variables for security).
+- Input your Instagram username and password in your .env file.
+  ```
+  INSTAGRAM_USERNAME = <Insert username>
+  INSTAGRAM_PASSWORD = <Insert password>
+  ```
 
 4. Run the script:
    
